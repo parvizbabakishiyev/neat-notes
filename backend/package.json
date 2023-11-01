@@ -4,7 +4,8 @@
   "description": "Neat Notes - Note taking application",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.mjs"
+    "start": "node app.mjs",
+    "start-nodemon": "nodemon app.mjs"
   },
   "author": "",
   "license": "ISC",

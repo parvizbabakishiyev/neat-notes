@@ -18,7 +18,7 @@ export default function Confirmation({
       {textHeading && <h1 className="text-base font-bold sm:text-lg">{textHeading}</h1>}
       <div className="flex flex-col gap-10">
         <p className="text-sm sm:text-base">{textConfirm}</p>
-        <div className="flex w-full items-center gap-2 self-end">
+        <div className={`flex items-center gap-2 self-end ${textBtnCancel || 'w-full'}`}>
           {textBtnCancel && (
             <Button btnType={cancelBtnType} onClick={onCancel} disabled={cancelBtnDisabled} className="min-w-[7rem]">
               {textBtnCancel}
