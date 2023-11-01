@@ -1,0 +1,31 @@
+{
+  "name": "neat-note",
+  "version": "1.0.0",
+  "description": "Neat Notes - Note taking application",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async-mutex": "^0.4.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^7.1.1",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.0.0",
+    "html-to-text": "^9.0.5",
+    "ioredis": "^5.3.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.6.1",
+    "nodemailer": "^6.9.6",
+    "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
