@@ -60,9 +60,9 @@ app.use('/api/v1/notes', noteRoutes);
 app.get('/api/v1/health-check', async (req, res, next) => {
   try {
     // check MongoDB
-    await UserModel.countDocuments();
+    if (mongoose.connection.readyState !== 1) throw Error('MongoDB connection is not up');
     // check Redis
-    await redisClient.get('ping');
+    await redisClient.ping();
 
     res.status(200).json({
       status: 'ok',
