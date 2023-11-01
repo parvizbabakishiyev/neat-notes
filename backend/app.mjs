@@ -84,7 +84,6 @@ app.use((err, req, res, next) => {
 
 // workaround for timeout issue
 const redisPing = setInterval(function () {
-  console.log(`${new Date(Date.now()).toISOString()}: Ping Redis`);
   redisClient.set('ping', 'pong', 'EX', 120);
 }, 1000 * 10);
 
