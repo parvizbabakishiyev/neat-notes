@@ -28,7 +28,7 @@ export default function StartLayout() {
       <Modal isOpen={!isDisclaimerAgreed} onClose={() => {}}>
         <Confirmation
           textHeading="Important Disclaimer"
-          textConfirm="This web application is for testing purposes only. Please do not enter any private information. Data entered is not secure and may be accessible by others. Thank you for your understanding."
+          textConfirm="This web application is for testing purposes only. Please do not enter any private information. Data entered is not secure and may be accessible by others."
           textBtnConfirm="Accept and proceed"
           onConfirm={agreeDisclaimer}
         ></Confirmation>

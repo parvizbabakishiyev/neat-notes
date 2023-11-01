@@ -201,7 +201,7 @@ export default function StartIllustration({ className }) {
         <Button
           isLink
           btnType="link"
-          to="https://www.freepik.com/free-vector/diaries-hands-vector-illustrations-set-arms-office-business-people-writing-notebooks-with-pens-pencils-making-notes-lists-isolated-white-background-planning-concept_26921635.htm#page=6&query=note&position=47&from_view=search&track=sph"
+          to="https://www.freepik.com/free-vector/diaries-hands-vector-illustrations-set-arms-office-business-people-writing-notebooks-with-pens-pencils-making-notes-lists-isolated-white-background-planning-concept_26921635.htm"
           target="_blank"
           className="text-xs lg:text-sm"
         >
