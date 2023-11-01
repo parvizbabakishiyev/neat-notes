@@ -30,6 +30,7 @@ const limiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   message: { message: 'Too many requests', errorCode: 'too_many_requests' },
+  validate: { xForwardedForHeader: false },
 });
 
 const corsOptions = {
@@ -38,8 +39,6 @@ const corsOptions = {
 };
 
 const app = express();
-
-app.set('trust proxy', true);
 
 app.use(cors(corsOptions));
 app.use(limiter);
