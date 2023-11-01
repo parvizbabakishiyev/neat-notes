@@ -107,9 +107,15 @@ try {
   });
 
   // start an HTTP server
-  app.listen(appPort, appHost, () => {
-    console.log(`${new Date(Date.now()).toISOString()}: HTTP server is started on port ${appPort}`);
-  });
+  if (appHost) {
+    app.listen(appPort, appHost, () => {
+      console.log(`${new Date(Date.now()).toISOString()}: HTTP server is started on port ${appPort}`);
+    });
+  } else {
+    app.listen(appPort, () => {
+      console.log(`${new Date(Date.now()).toISOString()}: HTTP server is started on port ${appPort}`);
+    });
+  }
 } catch (err) {
   console.error(`${new Date(Date.now()).toISOString()}: Cannot connect to MongoDB, exiting: ${err.message}`);
 }

@@ -90,8 +90,7 @@ export default function AddTag({ note, onChangeVisibility, isDisabled }) {
               type="text"
               {...register('newTag', {
                 maxLength: {
-                  value: 100,
-                  // value: 16,
+                  value: 16,
                   message: 'Tag name is too long',
                 },
               })}
