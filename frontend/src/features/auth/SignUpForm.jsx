@@ -14,16 +14,7 @@ export default function SignUpForm() {
     watch,
     trigger,
     formState: { errors },
-  } = useForm({
-    // default values for testing
-    defaultValues: {
-      firstname: 'andy',
-      lastname: 'joe',
-      email: 'mike@example.com',
-      password: '1234Qwer$',
-      passwordConfirm: '1234Qwer$',
-    },
-  });
+  } = useForm();
 
   const password = watch('password');
   useEffect(() => {

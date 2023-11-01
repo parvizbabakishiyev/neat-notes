@@ -11,6 +11,7 @@ import authRoutes from './routes/auth-routes.mjs';
 import noteRoutes from './routes/note-routes.mjs';
 import { httpError } from './utils.mjs';
 import redisClient from './redis.mjs';
+import UserModel from './models/user-model.mjs';
 
 dotenv.config();
 
@@ -23,6 +24,11 @@ const corsAllowOrigins = process.env.CORS_ALLOW_ORIGINS.split(';');
 const mongoDbConnStr = process.env.MONGODB_CONN_STRING.replace('<username>', process.env.MONGODB_USERNAME)
   .replace('<password>', process.env.MONGODB_PASSWORD)
   .replace('<db>', process.env.MONGODB_NAME);
+
+// workaround for timeout issue
+const redisPing = setInterval(function () {
+  redisClient.set('ping', 'pong', 'EX', 120);
+}, 1000 * 10);
 
 const limiter = rateLimit({
   windowMs: 60 * 1000,
@@ -51,6 +57,23 @@ app.use(cookieParser());
 app.use('/api/v1/', authRoutes);
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/notes', noteRoutes);
+app.get('/api/v1/health-check', async (req, res, next) => {
+  try {
+    // check MongoDB
+    await UserModel.countDocuments();
+    // check Redis
+    await redisClient.get('ping');
+
+    res.status(200).json({
+      status: 'ok',
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      status: 'not ok',
+    });
+  }
+});
 
 // handle undefined routes
 app.use('/', (req, res, next) => {
@@ -81,11 +104,6 @@ app.use((err, req, res, next) => {
     errors: err.errors,
   });
 });
-
-// workaround for timeout issue
-const redisPing = setInterval(function () {
-  redisClient.set('ping', 'pong', 'EX', 120);
-}, 1000 * 10);
 
 try {
   // connect MongoDB

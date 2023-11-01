@@ -17,13 +17,7 @@ export default function ChangePassword() {
     formState: { errors },
     watch,
     reset,
-  } = useForm({
-    defaultValues: {
-      currentPassword: '12345Qaz@',
-      newPassword: '12345Qaz@',
-      newPasswordConfirm: '12345Qaz@',
-    },
-  });
+  } = useForm();
 
   const changePassword = data => {
     changePasswordMutate(data, {

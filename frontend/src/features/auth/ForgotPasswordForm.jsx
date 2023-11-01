@@ -13,12 +13,7 @@ export default function ForgotPasswordForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    // default values for testing
-    defaultValues: {
-      email: 'mike@example.com',
-    },
-  });
+  } = useForm();
 
   const forgotPassword = data =>
     forgotPasswordMutate({

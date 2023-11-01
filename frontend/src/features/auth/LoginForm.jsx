@@ -18,13 +18,7 @@ export default function LoginForm({ loginMessage }) {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    // default values for testing
-    defaultValues: {
-      email: 'mike@example.com',
-      password: '1234Qwer$',
-    },
-  });
+  } = useForm();
 
   const { login: loginMutate, isPending, error } = useLogin();
 
