@@ -10,7 +10,7 @@ import Button from '../../ui/Button';
 import Input from '../../ui/Input';
 import Modal from '../../ui/Modal';
 import Spinner from '../../ui/Spinner';
-import useUnshareNote from './useUnsharenote';
+import useUnshareNote from './useUnshareNote';
 
 export default function ManageSharing({ note, isDisabled }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
