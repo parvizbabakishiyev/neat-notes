@@ -39,6 +39,8 @@ const corsOptions = {
 
 const app = express();
 
+app.set('trust proxy', true);
+
 app.use(cors(corsOptions));
 app.use(limiter);
 app.use(helmet());
