@@ -125,7 +125,7 @@ try {
   });
 
   // start an HTTP server
-  if (appHost) {
+  if (nodeEnv === 'development') {
     app.listen(appPort, appHost, () => {
       console.log(`${new Date(Date.now()).toISOString()}: HTTP server is started on port ${appPort}`);
     });
