@@ -13,6 +13,8 @@ export default function useLogout() {
     onSettled: (_data, _error, vars) => {
       logoutCtx(); // sync context
       queryClient.clear(); // clear query cache
+      queryClient.cancelQueries();
+      queryClient.removeQueries();
       navigate('/login', vars?.navOptions); // navigate to login page
     },
   });
