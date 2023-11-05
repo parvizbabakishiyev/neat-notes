@@ -84,6 +84,7 @@ export default function ManageSharing({ note, isDisabled }) {
               <span className="w-full grow">
                 <Input
                   label="Email to share with"
+                  labelColor="dark:bg-neutral-800 bg-white"
                   type="text"
                   name="email"
                   register={register}

@@ -3,7 +3,15 @@ import { TbEye, TbEyeOff } from 'react-icons/tb';
 import Button from './Button';
 import { useState } from 'react';
 
-export default function Input({ label, type, name, register, error = '', validationSchema = {} }) {
+export default function Input({
+  label,
+  labelColor = 'dark:bg-neutral-900 bg-white',
+  type,
+  name,
+  register,
+  error = '',
+  validationSchema = {},
+}) {
   const [showPassword, setShowPassword] = useState(false);
 
   const inputClasses = `${type === 'password' && 'pr-[3rem]'} ${
@@ -16,7 +24,7 @@ export default function Input({ label, type, name, register, error = '', validat
     error
       ? 'text-cerise-red-600 dark:text-cerise-red-500'
       : 'text-neutral-500 peer-focus:text-primary-green-400 dark:peer-focus:text-primary-green-400'
-  } dark:bg-neutral-900 absolute text-sm duration-300 transform -translate-y-[18px] scale-[0.95] top-2 z-[1] origin-[0] bg-white px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-[0.95] peer-focus:-translate-y-[18px] left-1`;
+  } ${labelColor} absolute text-sm duration-300 transform -translate-y-[18px] scale-[0.95] top-2 z-[1] origin-[0] px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-[0.95] peer-focus:-translate-y-[18px] left-1`;
 
   return (
     <div className="flex flex-wrap items-center gap-1">
@@ -49,6 +57,7 @@ export default function Input({ label, type, name, register, error = '', validat
 
 Input.propTypes = {
   label: PropTypes.string,
+  labelColor: PropTypes.string,
   type: PropTypes.oneOf(['text', 'password']).isRequired,
   name: PropTypes.string.isRequired,
   register: PropTypes.func,
