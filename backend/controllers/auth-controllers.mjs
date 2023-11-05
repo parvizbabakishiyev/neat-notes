@@ -66,7 +66,7 @@ async function loginUser(user, statusCode, res, next, oldRefreshTokenHash) {
       expires: new Date(utcExpiration),
       httpOnly: true,
       domain: appHost,
-      sameSite: 'None',
+      sameSite: 'Strict',
       secure: process.env.NODE_ENV === 'production',
     });
 
@@ -93,7 +93,7 @@ async function logoutUser(userId, message, res, next, refreshToken) {
     res.clearCookie('refreshToken', {
       httpOnly: true,
       domain: appHost,
-      sameSite: 'None',
+      sameSite: 'Strict',
       secure: process.env.NODE_ENV === 'production',
     });
 
