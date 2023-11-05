@@ -12,7 +12,7 @@ export default function useUpdateOwnUser() {
   } = useMutation({
     mutationFn: async ({ firstname, lastname, email }) => await updateOwnUserApi(firstname, lastname, email),
     onSuccess: () => {
-      queryClient.refetchQueries(['user']);
+      queryClient.refetchQueries({ queryKey: ['user'] });
     },
   });
 

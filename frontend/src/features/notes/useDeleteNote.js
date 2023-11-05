@@ -25,7 +25,7 @@ export default function useDeleteNote() {
     },
     onSuccess: () => {
       toast.success('Note deleted');
-      queryClient.refetchQueries(['notes', 'trashed']);
+      queryClient.refetchQueries({ queryKey: ['notes', 'trashed'] });
     },
   });
 

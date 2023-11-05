@@ -36,8 +36,8 @@ export default function useRestoreNote() {
     },
     onSuccess: () => {
       toast.success('Note is unarchived');
-      queryClient.refetchQueries(['notes', 'all']);
-      queryClient.refetchQueries(['notes', 'archived']);
+      queryClient.refetchQueries({ queryKey: ['notes', 'all'] });
+      queryClient.refetchQueries({ queryKey: ['notes', 'archived'] });
     },
   });
 

@@ -1,27 +1,27 @@
 import useFetch from '../hooks/useFetch';
 
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 export default function useApiNotes() {
   const { fetchInterceptor } = useFetch();
 
-  const getNote = async noteId => await fetchInterceptor(`${baseUrl}/notes/${noteId}`);
+  const getNote = async noteId => await fetchInterceptor(`${apiBaseUrl}/notes/${noteId}`);
 
-  const getOwnNotes = async () => await fetchInterceptor(`${baseUrl}/notes`);
+  const getOwnNotes = async () => await fetchInterceptor(`${apiBaseUrl}/notes`);
 
-  const getSharedNotes = async () => await fetchInterceptor(`${baseUrl}/notes/shared`);
+  const getSharedNotes = async () => await fetchInterceptor(`${apiBaseUrl}/notes/shared`);
 
-  const getAllNotes = async () => await fetchInterceptor(`${baseUrl}/notes/all`);
+  const getAllNotes = async () => await fetchInterceptor(`${apiBaseUrl}/notes/all`);
 
-  const getArchivedNotes = async () => await fetchInterceptor(`${baseUrl}/notes/archived`);
+  const getArchivedNotes = async () => await fetchInterceptor(`${apiBaseUrl}/notes/archived`);
 
-  const getTrashedNotes = async () => await fetchInterceptor(`${baseUrl}/notes/trashed`);
+  const getTrashedNotes = async () => await fetchInterceptor(`${apiBaseUrl}/notes/trashed`);
 
-  const countNotes = async () => await fetchInterceptor(`${baseUrl}/notes/count`);
+  const countNotes = async () => await fetchInterceptor(`${apiBaseUrl}/notes/count`);
 
   const createNote = async (title, textContent, colorHex, tags) => {
     const body = JSON.stringify({ title, textContent, colorHex, tags });
-    const data = await fetchInterceptor(`${baseUrl}/notes`, {
+    const data = await fetchInterceptor(`${apiBaseUrl}/notes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ export default function useApiNotes() {
       colorHex,
     });
 
-    const data = await fetchInterceptor(`${baseUrl}/notes/${noteId}`, {
+    const data = await fetchInterceptor(`${apiBaseUrl}/notes/${noteId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ export default function useApiNotes() {
 
   const shareNote = async (noteId, email) => {
     const body = JSON.stringify({ email });
-    await fetchInterceptor(`${baseUrl}/notes/${noteId}/share`, {
+    await fetchInterceptor(`${apiBaseUrl}/notes/${noteId}/share`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ export default function useApiNotes() {
   const unshareNote = async (noteId, email) => {
     const body = JSON.stringify({ email });
 
-    await fetchInterceptor(`${baseUrl}/notes/${noteId}/unshare`, {
+    await fetchInterceptor(`${apiBaseUrl}/notes/${noteId}/unshare`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -75,32 +75,32 @@ export default function useApiNotes() {
   };
 
   const deleteNote = async noteId =>
-    await fetchInterceptor(`${baseUrl}/notes/${noteId}`, {
+    await fetchInterceptor(`${apiBaseUrl}/notes/${noteId}`, {
       method: 'DELETE',
     });
 
   const emptyTrash = async () =>
-    await fetchInterceptor(`${baseUrl}/notes/trash`, {
+    await fetchInterceptor(`${apiBaseUrl}/notes/trash`, {
       method: 'DELETE',
     });
 
   const archiveNote = async noteId =>
-    await fetchInterceptor(`${baseUrl}/notes/${noteId}/archive`, {
+    await fetchInterceptor(`${apiBaseUrl}/notes/${noteId}/archive`, {
       method: 'PATCH',
     });
 
   const unarchiveNote = async noteId =>
-    await fetchInterceptor(`${baseUrl}/notes/${noteId}/unarchive`, {
+    await fetchInterceptor(`${apiBaseUrl}/notes/${noteId}/unarchive`, {
       method: 'PATCH',
     });
 
   const trashNote = async noteId =>
-    await fetchInterceptor(`${baseUrl}/notes/${noteId}/trash`, {
+    await fetchInterceptor(`${apiBaseUrl}/notes/${noteId}/trash`, {
       method: 'DELETE',
     });
 
   const restoreNote = async noteId =>
-    await fetchInterceptor(`${baseUrl}/notes/${noteId}/restore`, {
+    await fetchInterceptor(`${apiBaseUrl}/notes/${noteId}/restore`, {
       method: 'PATCH',
     });
 

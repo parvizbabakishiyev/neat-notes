@@ -19,7 +19,7 @@ export default function useEmptyTrash() {
     },
     onSuccess: () => {
       toast.success('Trash emptied');
-      queryClient.refetchQueries(['notes', 'trashed']);
+      queryClient.refetchQueries({ queryKey: ['notes', 'trashed'] });
     },
   });
 

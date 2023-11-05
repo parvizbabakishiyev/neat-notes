@@ -40,8 +40,8 @@ export default function useRestoreNote() {
     },
     onSuccess: ({ note }) => {
       toast.success('Note is restored');
-      queryClient.refetchQueries(['notes', note.isArchived ? 'archived' : 'all']);
-      queryClient.refetchQueries(['notes', 'trashed']);
+      queryClient.refetchQueries({ queryKey: ['notes', note.isArchived ? 'archived' : 'all'] });
+      queryClient.refetchQueries({ queryKey: ['notes', 'trashed'] });
     },
   });
 

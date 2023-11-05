@@ -20,7 +20,7 @@ export default function useCreateNote() {
     },
     onSuccess: ({ note }) => {
       queryClient.setQueryData(['notes', 'all'], oldNotes => (oldNotes ? [note, ...oldNotes] : oldNotes));
-      queryClient.refetchQueries(['notes', 'all']);
+      queryClient.refetchQueries({ queryKey: ['notes', 'all'] });
     },
   });
 

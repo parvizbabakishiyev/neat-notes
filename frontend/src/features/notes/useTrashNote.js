@@ -37,8 +37,8 @@ export default function useTrashNote() {
     },
     onSuccess: ({ note }) => {
       toast.success('Note trashed');
-      queryClient.refetchQueries(['notes', note.isArchived ? 'archived' : 'all']);
-      queryClient.refetchQueries(['notes', 'trashed']);
+      queryClient.refetchQueries({ queryKey: ['notes', note.isArchived ? 'archived' : 'all'] });
+      queryClient.refetchQueries({ queryKey: ['notes', 'trashed'] });
     },
   });
 

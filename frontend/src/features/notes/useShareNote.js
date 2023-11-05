@@ -14,7 +14,7 @@ export default function useShareNote() {
     mutationFn: async ({ note, email }) => await shareNoteApi(note.id, email),
     mutationKey: ['notes', 'share'],
     onSuccess: (_data, { note }) => {
-      queryClient.refetchQueries(['notes', note.isArchived ? 'archived' : 'all']);
+      queryClient.refetchQueries({ queryKey: ['notes', note.isArchived ? 'archived' : 'all'] });
     },
   });
 

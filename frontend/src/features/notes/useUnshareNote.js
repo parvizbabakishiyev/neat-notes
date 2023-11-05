@@ -16,7 +16,7 @@ export default function useUnshareNote() {
       toast.error('Cannot unshare the note');
     },
     onSuccess: (_data, { note }) => {
-      queryClient.refetchQueries(['notes', note.isArchived ? 'archived' : 'all']);
+      queryClient.refetchQueries({ queryKey: ['notes', note.isArchived ? 'archived' : 'all'] });
     },
   });
 
