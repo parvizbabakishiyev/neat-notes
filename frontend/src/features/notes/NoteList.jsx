@@ -34,8 +34,10 @@ export default function NoteList({ notes, className }) {
         }
 
         const textContentLength = Math.ceil(note.textContent.length / 40);
+        const textContentLineBreaks = note.textContent.split('\n').length;
+        const textContentLinesToShow = Math.max(textContentLength, textContentLineBreaks);
 
-        totalPixels += textContentLength <= 6 ? textContentLength * 20 : 120;
+        totalPixels += textContentLinesToShow <= 6 ? textContentLinesToShow * 20 : 120;
         totalPixels += gapCount * 12;
         const totalSpans = Math.ceil((totalPixels + 16) / 24);
 
