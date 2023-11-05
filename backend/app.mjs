@@ -54,6 +54,10 @@ app.use(express.json({ limit: payloadLimit }));
 app.use(cookieParser());
 
 // api routes
+app.use((req, res, next) => {
+  console.log(req.url);
+  next();
+});
 app.use('/api/v1/', authRoutes);
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/notes', noteRoutes);
