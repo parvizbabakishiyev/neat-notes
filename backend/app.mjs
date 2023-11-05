@@ -69,7 +69,7 @@ app.get('/api/v1/health-check', async (req, res, next) => {
   } catch (err) {
     console.log(err);
     res.status(500).json({
-      status: 'not ok',
+      status: 'fail',
     });
   }
 });
