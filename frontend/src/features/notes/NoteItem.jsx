@@ -48,7 +48,7 @@ const NoteItem = forwardRef(function ({ note, className, style }, ref) {
         )}
         <p
           ref={textContentRef}
-          className="line-clamp-6 max-h-[7.5rem] overflow-hidden truncate whitespace-pre-line text-sm text-neutral-800 dark:text-neutral-100"
+          className="line-clamp-6 max-h-[7.5rem] grow overflow-hidden truncate whitespace-pre-line text-sm text-neutral-800 dark:text-neutral-100"
         >
           {note.textContent}
         </p>
