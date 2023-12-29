@@ -22,7 +22,7 @@
     "html-to-text": "^9.0.5",
     "ioredis": "^5.3.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.0.3",
+    "mongoose": "^7.6.7",
     "nodemailer": "^6.9.7",
     "validator": "^13.11.0"
   },
